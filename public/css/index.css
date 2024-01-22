@@ -1,0 +1,36 @@
+
+.button {
+    color: white;
+    display: inline-block;
+    position: relative;
+    padding: 2px 5px;
+  }
+
+  .alert-badge {
+    background-color: #fa3e3e;
+    border-radius: 50%;
+    color: white;
+    padding: 1px 3px;
+    font-size: 12px;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+
+  /* Heart of the matter */
+@media (min-width: 992px) {
+    .gutter .col-md-4 {
+      border-right: 12px white solid;
+    }
+    .gutter .col-md-4:last-child {
+      border-right: none;
+    }
+  }
+
+  @media (min-width: 992px) {
+    .gutter .row {
+      margin: 8px 0;
+    }
+  }
+
