@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('email', 100)->unique();
             $table->string('phone', 100)->nullable();
             $table->string('profile_image', 150)->nullable();
+            $table->enum('b_status', [0,1])->default(1)->comment('1 for active user and 0 for in-active user');
             $table->enum('gender', [1,2,3])->comment('1 for male, 2 for female and 3 for other');
             $table->enum('user_type', [1,2,3])->default(2)->comment('1 for admin , 2 for peoduct manager and 3 for employee');
             $table->timestamp('email_verified_at')->nullable();
