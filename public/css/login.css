@@ -6,7 +6,7 @@
   font-family: 'Poppins',sans-serif;
 }
 body{
-  background: linear-gradient(#f6f1f1, #1abc9c);
+  /* background: linear-gradient(#f6f1f1, #1abc9c); */
   overflow: hidden;
 }
 ::selection{
@@ -112,3 +112,24 @@ form .signup-link a:hover{
     padding: 0px 0px;
     font-size: 12px;
 }
+
+.alert {
+    padding: 20px;
+    background-color: #f9847c;
+    color: white;
+  }
+
+  .closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  .closebtn:hover {
+    color: black;
+  }

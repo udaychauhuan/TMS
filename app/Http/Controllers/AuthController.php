@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
+
 
 class AuthController extends Controller
 {
@@ -42,28 +41,7 @@ class AuthController extends Controller
             $request->session()->put('name', Auth::user()->name);
             return redirect()->route('home');
         }
-        return  back()->with(['failed' => "Invalid UserName/Password !!"]);
-    }
-
-    /** this function is used to store the resourse
-     *
-     *  @param request
-     *  @return response
-     */
-    public function StoreUser(Request $request)
-    {
-        $user = [
-            'name' => 'uday pratap',
-            'user_type' => 3,
-            'phone' => 9808240734,
-            'email' => 'pratap.uday.chauhan@gmail.com',
-            'gender' => 1,
-            'password' => Hash::make('12345678'),
-        ];
-
-        User::create($user);
-
-        redirect()->route('login')->with('message', 'User created successfully.');
+        return  back()->with(['Error' => "Invalid UserName/Password !!"]);
     }
 
     /** this function will logout the user from the sytem
