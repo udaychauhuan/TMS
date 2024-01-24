@@ -61,7 +61,8 @@
                                                 action
                                             </button>
                                             <ul class="dropdown-menu">
-                                                <li><a class="dropdown-item" href="#">view</a></li>
+                                                <li><a class="dropdown-item view-user" href="#"  data-id="{{ $item->id }}" data-bs-toggle="modal"
+                                                    data-bs-target="#view-user">view</a></li>
                                                 <li><a class="dropdown-item edit-btn" href=""
                                                         data-id="{{ $item->id }}" data-bs-toggle="modal"
                                                         data-bs-target="#create-user">edit</a></li>
@@ -112,6 +113,26 @@
                 }
             });
         });
+
+        $('.view-user').click(function(e) {
+            $.ajax({
+                /* the route pointing to the post function */
+                url: "{{ route('useredit') }}",
+                type: 'POST',
+                /* send the csrf-token and the input to the controller */
+                data: {
+                    _token: CSRF_TOKEN,
+                    id: $(this).data("id")
+                },
+                dataType: 'JSON',
+                success: function(data) {
+                    $('#user-name').html(data.name);
+                    $('#user-gmail').html(data.email);
+                    console.log(data);
+                }
+            });
+        });
+
 
     </script>
 @endsection

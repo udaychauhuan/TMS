@@ -1,91 +1,77 @@
 <!-- create project module -->
-<div class="modal fade" id="create-project" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<!-- Modal -->
+<div class="modal fade" id="create-project" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="col-lg-12">
-                <div class="card card-outline card-primary">
-                    <div class="card-body">
-                        <form action="" id="manage-project">
-
-                            <input type="hidden" name="id" value="">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="" class="control-label">Name</label>
-                                        <input type="text" class="form-control form-control-sm" name="name"
-                                            value="">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="">Status</label>
-                                        <select name="status" id="status" class="custom-select custom-select-sm">
-                                            <option value="0">Pending</option>
-                                            <option value="3">On-Hold</option>
-                                            <option value="5">Done</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="" class="control-label">Start Date</label>
-                                        <input type="date" class="form-control form-control-sm" autocomplete="off"
-                                            name="start_date" value="">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="" class="control-label">End Date</label>
-                                        <input type="date" class="form-control form-control-sm" autocomplete="off"
-                                            name="end_date" value="">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="" class="control-label">Project Manager</label>
-                                        <select class="form-control form-control-sm select2" name="manager_id">
-                                            <option>uday pratap</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <input type="hidden" name="manager_id" value="">
-
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="" class="control-label">Project Team Members</label>
-                                        <select class="form-control form-control-sm select2" multiple="multiple"
-                                            name="user_ids[]">
-                                            <option> anshul</option>
-                                            <option value="">mayank</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-10">
-                                    <div class="form-group">
-                                        <label for="" class="control-label">Description</label>
-                                        <textarea name="description" id="" cols="30" rows="10" class="summernote form-control">
-					                    </textarea>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
+            <form id="createproject" class="row g-3" action="{{ route('projectcreate') }}" method="post">
+                @csrf
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">create Project</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" onclick="this.form.reset();"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" id="id" name="id" value="">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="projectname" class="form-label">Project Name</label>
+                            <input type="text" class="form-control" id="p_name" name="p_name">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="projectstatus" class="form-label">Project Status</label>
+                            <select id="p_status" name="p_status" class="form-select">
+                                <option value="1">Pendig</option>
+                                <option value="2">In-progress</option>
+                                <option value="3">Complete</option>
+                            </select>
+                        </div>
                     </div>
-                    <div class="card-footer border-top border-info">
-                        <div class="d-flex w-100 justify-content-center align-items-center">
-                            <button class="btn btn-primary mx-2" form="manage-project">Save</button>
-                            <button class="btn btn-dark mx-2" data-bs-dismiss="modal" type="button">Cancel</button>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="projectname" class="form-label">Start date</label>
+                            <input type="date" class="form-control" id="start_date" name="start_date">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="projectstatus" class="form-label">End Date</label>
+                            <input type="date" class="form-control" id="end_date" name="end_date">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="projectname" class="form-label">Project Manager</label>
+                            <select id="manager_id" name="manager_id" class="form-select">
+                                <option value="1">Anjali</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="projectstatus" class="form-label">Employee</label>
+                            <select class="form-control form-control-sm select2" id="assigned_users"
+                                name="assigned_users" multiple="multiple">
+                                <option value="1">uday</option>
+                                <option value="2">Anshul</option>
+                                <option value="3">Yash</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label for="formFile" class="form-label">Project Icon</label>
+                            <input type="file" name="p_image" id="p_image" class="course form-control">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-10">
+                            <div class="form-group">
+                                <label for="" class="control-label">Description</label>
+                                <textarea name="description" id="" cols="10" rows="5" class="summernote form-control"></textarea>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
@@ -101,7 +87,8 @@
 
                     <div class="modal-header">
                         <h5 class="modal-title">create user</h5>
-                        <button type="button" class="btn-close"  onclick="this.form.reset();" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <button type="button" class="btn-close" onclick="this.form.reset();"
+                            data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <input type="hidden" id="id" name="id" value="">
                     <div class="col-md-6">
@@ -153,6 +140,31 @@
     </div>
 </div>
 
-@section('js')
 
+{{-- view user model --}}
+<div class="modal fade" id="view-user" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">View user</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" onclick="this.form.reset();"
+                    aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h5 class="card-title" id="user-name"></h5>
+                        <p class="card-text" id="user-gmail"></p>
+                        <a href="#" class="profile-image">
+                            <img src="\assets\male-plac-img.png" style="height:6rem;width:6rem;"
+                                class="rounded-circle card-img-top" alt="..." title="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section('js')
 @endsection

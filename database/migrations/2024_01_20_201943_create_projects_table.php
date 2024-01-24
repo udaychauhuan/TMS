@@ -19,7 +19,6 @@ return new class extends Migration
             $table->date('start_date');
             $table->date('end_date');
             $table->string('p_image')->nullable();
-            $table->string('p_image')->nullable();
             $table->unsignedBigInteger('created_by');
             $table->unsignedBigInteger('manager_id');
             $table->string('assigned_users');

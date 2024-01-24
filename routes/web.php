@@ -14,6 +14,8 @@ Route::get('/loginOut', [AuthController::class, 'LogOut'])->name('LogOut');
 Route::middleware(['auth'])->group(function(){
 
     Route::get('/home', [ProjectController::class, 'index'])->name('home');
+    Route::post('/project/create', [ProjectController::class, 'create'])->name('projectcreate');
+    Route::post('/project/edit', [ProjectController::class, 'edit'])->name('projectedit');
 
     Route::get('/task', [TaskController::class, 'index'])->name('tasks');
     Route::get('/taskLog', [TaskController::class, 'displayTaskLogs'])->name('tasksLogs');
@@ -24,5 +26,6 @@ Route::middleware(['auth'])->group(function(){
     Route::Post('/user/edit', [UserController::class, 'edit'])->name('useredit');
     Route::Post('/user/update', [UserController::class, 'update'])->name('userupdate');
     Route::any('/user/delete/{id}', [UserController::class, 'destroy'])->name('userdelete');
+
 });
 

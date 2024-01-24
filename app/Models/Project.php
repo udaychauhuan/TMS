@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Project extends Model
 {
     use HasFactory;
-    
+
     protected $fillable = [
         'p_name',
         'description',
@@ -16,6 +16,7 @@ class Project extends Model
         'start_date',
         'end_date',
         'manager_id',
+        'created_by',
         'assigned_users',
     ];
 }
