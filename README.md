@@ -8,3 +8,6 @@ pass:-12345678
 for setup in local change your db setting in .env 
 run all migration files with 
 >> php artisan migrate
+
+in DBSQL folder all SQL files are present 
+
