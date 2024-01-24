@@ -37,7 +37,7 @@ CREATE TABLE `users` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -46,7 +46,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'uday pratap chauhan','pratap.uday.chauhan@gmail.com','9808240734',NULL,'1','1',NULL,'$2y$12$wbMh6CdTyPr5.zUm7afrP.Pd1H5IFHB5wyT6JBGR5cVYqhKG59dny',NULL,'2024-01-21 03:06:35','2024-01-22 20:35:34'),(2,'anshul kumar','anshul@gmail.com','987654321',NULL,'1','3',NULL,'$2y$12$qdD.U5DVBeu.riv0.Go7G.GsMYS96sMxq6jR6CNeLMYlfnYaZmkee',NULL,'2024-01-22 12:35:07','2024-01-22 12:35:07');
+INSERT INTO `users` VALUES (1,'uday pratap chauhan','pratap.uday.chauhan@gmail.com','9808240734',NULL,'1','1',NULL,'$2y$12$wbMh6CdTyPr5.zUm7afrP.Pd1H5IFHB5wyT6JBGR5cVYqhKG59dny',NULL,'2024-01-21 03:06:35','2024-01-22 20:35:34'),(2,'anshul kumar','anshul@gmail.com','987654321',NULL,'1','3',NULL,'$2y$12$qdD.U5DVBeu.riv0.Go7G.GsMYS96sMxq6jR6CNeLMYlfnYaZmkee',NULL,'2024-01-22 12:35:07','2024-01-22 12:35:07'),(6,'anjali bhaardwaj','anjali@gmail.com','873763553',NULL,'2','2',NULL,'$2y$12$a.1Gy.1yvFqGjFMRSS1Z6OAbrir.ZmN17u/otWafL4d8M2Fq.hhxG',NULL,'2024-01-24 10:08:27','2024-01-24 10:08:27');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -59,4 +59,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-01-23  9:29:40
+-- Dump completed on 2024-01-25  1:13:39

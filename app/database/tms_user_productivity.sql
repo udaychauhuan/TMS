@@ -16,27 +16,40 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `password_reset_tokens`
+-- Table structure for table `user_productivity`
 --
 
-DROP TABLE IF EXISTS `password_reset_tokens`;
+DROP TABLE IF EXISTS `user_productivity`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `password_reset_tokens` (
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+CREATE TABLE `user_productivity` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `project_id` bigint unsigned NOT NULL,
+  `task_id` bigint unsigned NOT NULL,
+  `user_id` bigint unsigned NOT NULL,
+  `subject` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `comment` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `start_time` time NOT NULL COMMENT 'time when user start task',
+  `end_time` time NOT NULL COMMENT 'time when user stop the tassk',
   `created_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`email`)
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `user_productivity_project_id_foreign` (`project_id`),
+  KEY `user_productivity_user_id_foreign` (`user_id`),
+  KEY `user_productivity_task_id_foreign` (`task_id`),
+  CONSTRAINT `user_productivity_project_id_foreign` FOREIGN KEY (`project_id`) REFERENCES `projects` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `user_productivity_task_id_foreign` FOREIGN KEY (`task_id`) REFERENCES `tasks` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `user_productivity_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `password_reset_tokens`
+-- Dumping data for table `user_productivity`
 --
 
-LOCK TABLES `password_reset_tokens` WRITE;
-/*!40000 ALTER TABLE `password_reset_tokens` DISABLE KEYS */;
-/*!40000 ALTER TABLE `password_reset_tokens` ENABLE KEYS */;
+LOCK TABLES `user_productivity` WRITE;
+/*!40000 ALTER TABLE `user_productivity` DISABLE KEYS */;
+/*!40000 ALTER TABLE `user_productivity` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -48,4 +61,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-01-23  9:29:39
+-- Dump completed on 2024-01-25  1:13:39
